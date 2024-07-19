@@ -1,48 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-
-
-
-const Header=()=>{
-    return(
-<div className="header">
-   <div className="header-logo">  
-   <img 
-   className="logo"
-   src="https://st2.depositphotos.com/3867453/5508/v/600/depositphotos_55081557-stock-illustration-food-word-sign-logo-icon.jpg"
-   />
-   </div>
- <div className="header-items">
-    <ul>
-        <li>Home</li>
-        <li>about us</li>
-        <li>contact us</li>
-        <li>Cart</li>
-    </ul>
- </div>
-   </div>
-    );
-}
-
-const Rescard=(props)=>{
-    const {resData} = props;
-    const {name,cuisines,avgRating,costForTwo}= resData?.info;
-    const {deliveryTime} = resData?.info.sla;
-    return(
-    <div className="res-card" style={{background:"#f0f0f0"}}>
-   <img className="Res-img" alt="Res-image"
-    src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/tscwxqko4pabme8gj2ty"
-   />
-   <h3>{name}</h3>
-   <h3>{cuisines.join(", ")}</h3>
-   <h3>{avgRating}</h3>
-   <h3>{costForTwo}</h3>
-   <h3>{deliveryTime} Minutes</h3>
-    </div>
-    );
-}
-
 const resObj = [
     {
         "info": {
@@ -987,39 +942,4 @@ const resObj = [
         }
     },
                             ];
-
-
-const Body=()=>{
-    return(
-     <div className="Body-Container">
-        <div className="search-bar">
-            <h3>Search</h3>
-            </div>
-            <div className="resContainer" >
-              { resObj.map((restaurant)=><Rescard key={restaurant.id} resData={restaurant}/>)
-              }  
-
-           
-          
-            </div>
-        
-
-     </div>
-    );
-}
-
-const Applayout=()=>{
-    return(
-        <div className="app">
-            <Header/>
-            <Body/>
-        </div>
- 
-    );
-}
-
-
-
-root= ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<Applayout/>);
+ export default resObj;                           

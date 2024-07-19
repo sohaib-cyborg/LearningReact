@@ -27,7 +27,7 @@
 }
 
 .res-card{
-height: 300px;
+height: 500px;
 width: 200px;
 padding: 5px;
 }
@@ -50,4 +50,8 @@ padding: 5px;
     padding: 5px;
     gap: 20px;
     
+}
+.FilterName{
+    cursor: pointer;
+    margin: 5px;
 }
