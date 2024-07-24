@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
 import Rescard from "./Rescard";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
+import useOnlineStatus from "../../utils/useOnline";
+
 const Body = () => {
   const [resList, setresList] = useState([]);
   const [searchRes,setsearchRes] = useState("");
@@ -16,6 +19,13 @@ const Body = () => {
     const json = await Data.json();
     setresList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setfilteredList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  }
+
+  const onlinestate = useOnlineStatus();
+  if(!onlinestate){
+   return(
+    <h1>Looks Like You are Offline! Please Check Your Connectivity!</h1>
+   )
   }
 
   return resList.length===0? (<Shimmer/>):(
@@ -48,8 +58,9 @@ const Body = () => {
       </div>
       <div className="resContainer">
         {filteredList.map((restaurant) => (
-          <Rescard key={restaurant.id} resData={restaurant} />
-        ))}
+        <Link key={restaurant?.info?.id} to={"/restaurant/"+restaurant?.info?.id}>  <Rescard  resData={restaurant} /> </Link>
+        ))
+        }
       </div>
     </div>
   );
