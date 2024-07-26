@@ -3,7 +3,7 @@ import Shimmer from "../components/Shimmer";
 //import { Menu_Url } from "../../utils/constants";
 import { useParams } from "react-router-dom";
 import useRestData from "../../utils/useRestData";
-import useOnlineStatus from "../../utils/useOnline";
+import ResCat from "../components/ResCat";
 
 
 
@@ -26,16 +26,20 @@ const Resdata=()=>{
      
  if(restData === null)return <Shimmer/>;
  
- const {text} = restData?.cards[0]?.card?.card;
- const {itemCards} = restData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-console.log(itemCards);
+ const {name,costForTwoMessage,cuisines} = restData?.cards[2]?.card?.card?.info;
+ //const {itemCards} = restData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+ const itemCategories = restData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+
+console.log(itemCategories);
     return(
-  <div className="ResInfo">
-    <h1>{text}</h1>
-    <h1>Menu</h1>
-    <ul>
-     {itemCards.map((item)=>( <li>{item.card.info.name}</li>))}      
-    </ul>  
+  <div className="ResInfo text-center">
+    <h1 className="font-extrabold text-lg py-10">{name}</h1>
+    <p className="font-semibold">{costForTwoMessage} - {cuisines.join(", ")}</p>
+   
+    {itemCategories.map((item)=>(
+      <ResCat/>
+    )
+    )}
  
   </div>
     );

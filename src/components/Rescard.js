@@ -5,11 +5,11 @@ const Rescard=(props)=>{
     const {deliveryTime} = resData?.info.sla;
     
     return(
-    <div className="res-card" style={{background:"#f0f0f0"}}>
-   <img className="Res-img" alt="Res-image"
+    <div className="res-card p-4 m-4 w-[250px] h-[450px] rounded-lg bg-gray-100 hover:bg-g">
+   <img className="Res-img w-[200px] h-auto object-contain" alt="Res-image"
     src={ CDN_URL + cloudinaryImageId}
    />
-   <h3>{name}</h3>
+   <h3 className="font-bold py-2">{name}</h3>
    <h3>{cuisines.join(", ")}</h3>
    <h3>{avgRating}</h3>
    <h3>{costForTwo}</h3>
@@ -17,4 +17,16 @@ const Rescard=(props)=>{
     </div>
     );
 }
+  export const PromotedRescard=(Rescard)=>{
+        return (props)=>{
+            
+            return(
+                <div>
+         <label className="absolute py-2 m-2 bg-black text-white rounded-lg">promoted</label>
+         <Rescard {...props}/>
+         </div>
+            );
+        }
+    }
+
 export default Rescard;

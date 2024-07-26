@@ -5,21 +5,21 @@ const Header=()=>{
     const checkStat = useOnlineStatus();
     
     return(
-<div className="header">
-   <div className="header-logo">  
+<div className="header flex items-center justify-between bg-yellow-500 shadow-xl">
+   <div className="header-logo" >  
    <img 
-   className="logo"
+   className="logo w-[20%]"
    src="https://st2.depositphotos.com/3867453/5508/v/600/depositphotos_55081557-stock-illustration-food-word-sign-logo-icon.jpg"
    />
    </div>
- <div className="header-items">
-    <ul>
-        <li>Online: {checkStat? "🟢":"🔴"}</li>
-        <li><Link to={"/"}>Home</Link></li>
-    <li><Link to={"/about"}>about us</Link></li>
-    <li><Link to={"/grocery"}>Grocery</Link></li>
-        <li>contact us</li>
-        <li>Cart</li>
+ <div className="header-items flex items-center">
+    <ul className="flex items-center gap-5 px-5 m-2">
+        <li className="px-2">Online: {checkStat? "🟢":"🔴"}</li>
+        <li className="px-2"><Link to={"/"}>Home</Link></li>
+    <li className="px-2"><Link to={"/about"}>about us</Link></li>
+    <li className="px-2"><Link to={"/grocery"}>Grocery</Link></li>
+        <li className="px-2">contact us</li>
+        <li className="px-2">Cart</li>
     </ul>
  </div>
    </div>
