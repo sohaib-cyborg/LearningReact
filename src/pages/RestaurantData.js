@@ -12,6 +12,7 @@ const Resdata=()=>{
     //const [restData,setrestData]=useState(null);
     const {resid} =useParams();
     const restData= useRestData(resid);
+    const [Index,setIndex] = useState(null);
     
    // console.log(resdata);
    // useEffect(()=>{
@@ -36,8 +37,10 @@ console.log(itemCategories);
     <h1 className="font-extrabold text-lg py-10">{name}</h1>
     <p className="font-semibold">{costForTwoMessage} - {cuisines.join(", ")}</p>
    
-    {itemCategories.map((item)=>(
-      <ResCat/>
+    {itemCategories.map((item,index)=>(
+      <div key={item?.card?.card?.title} className="py-2">
+      <ResCat  data={item.card?.card} itemShow={Index===index? true:false } showItemhandle={()=>setIndex(prevIndex => (prevIndex === index ? null : index))}/>
+      </div>
     )
     )}
  

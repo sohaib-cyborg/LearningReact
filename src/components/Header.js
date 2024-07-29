@@ -19,7 +19,7 @@ const Header=()=>{
     <li className="px-2"><Link to={"/about"}>about us</Link></li>
     <li className="px-2"><Link to={"/grocery"}>Grocery</Link></li>
         <li className="px-2">contact us</li>
-        <li className="px-2">Cart</li>
+        <li className="px-2"><Link to={"/cart"}>Cart</Link></li>
     </ul>
  </div>
    </div>
