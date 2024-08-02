@@ -7,8 +7,8 @@ const ResCat=({data,itemShow,showItemhandle})=>{
      showItemhandle();
     }
     return(
-    <div className="w-6/12 cursor-pointer mx-auto bg-gray-200 shadow-xl p-4">
-    <div className="flex justify-between p-2" onClick={handleClick}>
+    <div className="w-6/12  mx-auto bg-gray-200 shadow-xl p-4">
+    <div className="flex justify-between p-2 cursor-pointer" onClick={handleClick}>
     <span className="font-bold text-xl">{data.title}-({data?.itemCards?.length})</span>
     <span>⬇️</span>
     </div>

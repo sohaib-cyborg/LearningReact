@@ -9,10 +9,11 @@ import Resdata from "./pages/RestaurantData";
 import { Provider } from "react-redux";
 import AppStore from "../utils/appstore";
 import Cart from "./pages/cart";
+import ContactUs from "./pages/contactUs";
 
 const Applayout=()=>{
     return(
-        <Provider value={AppStore}>
+        <Provider store={AppStore}>
         <div className="app">
             <Header/>
             <Outlet/>
@@ -43,6 +44,10 @@ const app = createBrowserRouter([
         {
             path:"/cart",
             element:<Cart/>,
+        },
+        {
+            path:"/contactus",
+            element:<ContactUs/>,
         },
         {
             path:"/grocery",

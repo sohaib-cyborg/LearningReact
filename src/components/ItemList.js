@@ -20,7 +20,7 @@ const ItemList=({itemData})=>{
        <div className="absolute p-2">
         <button 
         onClick={()=>handleClick(item)}
-        className="w-12 rounded-lg bg-black text-white">ADD</button>
+        className="w-12 rounded-lg bg-black text-white cursor-pointer shadow-xl">ADD</button>
        </div>
          <img className="w-full h-32 object-cover"
           src={CDN_URL+item?.card?.info?.imageId}
