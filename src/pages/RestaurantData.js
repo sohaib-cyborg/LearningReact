@@ -31,7 +31,7 @@ const Resdata=()=>{
  //const {itemCards} = restData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
  const itemCategories = restData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
 
-console.log(itemCategories);
+
     return(
   <div className="ResInfo text-center">
     <h1 className="font-extrabold text-lg py-10">{name}</h1>

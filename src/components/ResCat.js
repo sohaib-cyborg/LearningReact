@@ -2,7 +2,7 @@ import { useState } from "react";
 import ItemList from "./ItemList";
 
 const ResCat=({data,itemShow,showItemhandle})=>{
-    console.log("hello");
+    
     const handleClick=()=>{
      showItemhandle();
     }

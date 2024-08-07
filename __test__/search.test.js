@@ -30,3 +30,21 @@ test("should render body with search", async () => {
   expect(resItems.length).toBe(1);
   expect(searchButton).toBeInTheDocument();
 });
+
+it("should show high rated restaurants",async()=>{
+ await act(async()=>
+  render(
+    <BrowserRouter>
+      <Body/>
+    </BrowserRouter>
+  )
+ );
+const TotalRescard = screen.getAllByTestId("rescard");
+expect(TotalRescard.length).toBe(8);
+
+const HratedButton = screen.getByRole("button",{name:"Top Rated restaurants"});
+fireEvent.click(HratedButton);
+const HratedRes= screen.getAllByTestId("rescard");
+expect(HratedRes.length).toBe(1);
+
+});
