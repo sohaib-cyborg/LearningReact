@@ -17,11 +17,13 @@ const Body = () => {
     const Data = await fetch(
       "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
-    console.log(Data);
+    
     const json = await Data.json();
+    
     const updatedarray =
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
+        console.log(updatedarray);
     const newarray = updatedarray.map((restaurant, index) => {
       return {
         ...restaurant,
@@ -49,6 +51,7 @@ const Body = () => {
       <div className="Body-header flex flex-wrap items-center">
         <div className="Search pl-10 m-3">
           <input
+            data-testid="searchInput"
             className="p-4 m-4 border border-solid border-black w-30 h-10"
             type="text"
             placeholder="Search"

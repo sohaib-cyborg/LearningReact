@@ -5,7 +5,9 @@ const Rescard=(props)=>{
     const {deliveryTime} = resData?.info.sla;
     
     return(
-    <div className="res-card p-4 m-4 w-[250px] h-[450px] rounded-lg bg-gray-100 hover:bg-g">
+    <div
+    data-testid="rescard" 
+    className="res-card p-4 m-4 w-[250px] h-[450px] rounded-lg bg-gray-100 hover:bg-g">
    <img className="Res-img w-[200px] h-auto object-contain" alt="Res-image"
     src={ CDN_URL + cloudinaryImageId}
    />
